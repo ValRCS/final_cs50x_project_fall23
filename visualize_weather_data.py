@@ -85,9 +85,38 @@ with open(file_name, mode="w", encoding="utf-8") as file:
     for time,temperature in zip(response.json()["hourly"]["time"], response.json()["hourly"]["temperature_2m"]):
         file.write(f"{time},{temperature}\n")
         # for debugging let's also print the data could comment out later
-        print(f"Time: {time} Temperature: {temperature}°C")
+        # print(f"Time: {time} Temperature: {temperature}°C")
 # here file is automatically closed
 
 # let's print time and temperature for the next 5 days
 # for time,temperature in zip(response.json()["hourly"]["time"], response.json()["hourly"]["temperature_2m"]):
 #             print(f"Time: {time} Temperature: {temperature}°C")
+
+# now I want to visualize temperature data vs time
+# i will use matplotlib library
+# if I don't have it installed I need to install it using pip
+# pip install matplotlib in terminal - only once
+# matplotlib documentation: https://matplotlib.org/stable/contents.html
+
+# lets import pyplot from matplotlib
+import matplotlib.pyplot as plt # notice we rename it to plt very common
+
+# now I need two lists one for time and one for temperature
+times = response.json()["hourly"]["time"]
+temperatures = response.json()["hourly"]["temperature_2m"]
+# let's print the lists
+print(f"Times: {times}")
+print(f"Temperatures: {temperatures}")
+
+# let's plot the data
+plt.plot(times, temperatures)
+# let's add labels
+plt.xlabel("Time")
+plt.ylabel("Temperature")
+# let's add title
+plt.title(f"Temperature in {city}")
+# i can save it to a file
+plt.savefig(f"{timestamp}_{city}.png")
+# let's show the plot in a window instead of saving it to a file
+plt.show() # this will block the program until we close the window
+
