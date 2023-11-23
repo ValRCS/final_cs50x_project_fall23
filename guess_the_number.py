@@ -15,6 +15,8 @@ MAX_NUMBER = 100
 MAX_GUESSES = 6 # optimal number of guesses is log2(MAX_NUMBER - MIN_NUMBER + 1) rounded up
 # reminder in Python uppercase means constant but it is not enforced
 
+# example of PvC game - Player vs Computer
+
 def main(): # again after : we need to indent
     guesses_left = MAX_GUESSES
     # we will use the randint function

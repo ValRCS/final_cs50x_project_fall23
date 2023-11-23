@@ -1,9 +1,11 @@
 # we will implement a game of Nim
+# Nim game description: https://en.wikipedia.org/wiki/Nim
 # we need to store game state which will be just a number of stones
 # we also need to store the current player
 MIN_MOVE = 1
 MAX_MOVE = 3
 
+# example of PvP game - Player vs Player
 
 def main():
     STARTING_STONES = 21 # In Python uppercase means constant but it is not enforced
